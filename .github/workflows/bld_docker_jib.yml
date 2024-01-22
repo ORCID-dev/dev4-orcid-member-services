@@ -100,12 +100,12 @@ jobs:
           # NOTE: history does not include tags!
           fetch-depth: 100
 
-      - name: find next version
-        id: version
-        uses: ORCID/version-bump-action@main
-        with:
-          version_tag: ${{ inputs.version_tag }}
-          bump: ${{ inputs.bump }}
+#       - name: find next version
+#         id: version
+#         uses: ORCID/version-bump-action@main
+#         with:
+#           version_tag: ${{ inputs.version_tag }}
+#           bump: ${{ inputs.bump }}
 
       # with jib we are building outside the container and using mvn??
       - name: Set up Open JDK 11
