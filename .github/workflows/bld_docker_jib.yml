@@ -13,7 +13,7 @@ on:
       docker_name:
         description: 'Name of the docker image to build'
         required: false
-        default: "orcid/version-bumping-test"
+        default: "memberservice"
         type: string
       context:
         description: 'Name of the context in the repo'
@@ -23,7 +23,7 @@ on:
       version_tag:
         description: 'Name of the tag to build'
         required: false
-        default: 'latest'
+        default: '0.0.1'
         type: string
       bump:
         description: 'whether to bump the version number by a major minor patch amount or none'
@@ -35,17 +35,6 @@ on:
         required: false
         default: "default"
         type: string
-      seed_maven_cache:
-        description: Whether to seed cache
-        type: boolean
-        required: false
-        default: true
-      install_maven_dependencies:
-        description: Whether to install dependencies or use a previous cache
-        type: boolean
-        required: false
-        default: true
-
 
 
   workflow_dispatch:
@@ -53,7 +42,7 @@ on:
       docker_name:
         description: 'Name of the docker image to build'
         required: false
-        default: "orcid/version-bumping-test"
+        default: "memberservice"
         type: string
       context:
         description: 'Name of the context in the repo'
@@ -63,7 +52,7 @@ on:
       version_tag:
         description: 'Name of the tag to build'
         required: false
-        default: 'latest'
+        default: '0.0.1'
         type: string
       bump:
         description: |
@@ -137,8 +126,27 @@ jobs:
         shell: bash
         env:
           DOCKER_REG_PRIVATE: "${{ secrets.DOCKER_REG_PRIVATE }}"
+          #tag: "${{ steps.version.outputs.version_tag }}"
+          #tag: "0.0.1"
+          tag: "${{ inputs.version_tag }}"
+
+      - name: Login to private registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ secrets.DOCKER_REG_PRIVATE }}
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: build our project
+        run: |
+          docker push ${DOCKER_REG_PRIVATE}/${docker_name}:${tag}
+        shell: bash
+        env:
+          DOCKER_REG_PRIVATE: "${{ secrets.DOCKER_REG_PRIVATE }}"
+          docker_name:  "${{ inputs.docker_name }}"
           #version_tag: "${{ steps.version.outputs.version_tag }}"
-          tag: "0.0.1"
+          tag: "${{ inputs.version_tag }}"
+
 
 # echo "pushing memberservice image to nexus"
 #docker push ${DOCKER_REG_PRIVATE}/memberservice:$tag
