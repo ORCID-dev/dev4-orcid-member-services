@@ -133,7 +133,7 @@ jobs:
 
           find . -name '*.war'
           find . -name '*.jar'
-          docker image ls | head -10
+          docker image ls
         shell: bash
         env:
           DOCKER_REG_PRIVATE: "${{ secrets.DOCKER_REG_PRIVATE }}"
