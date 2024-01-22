@@ -12,7 +12,7 @@ on:
       version_tag:
         description: 'Version tag to use: (bump must also be set to none to keep a specific version'
         required: false
-        default: 'latest'
+        default: '0.0.1-dev'
         type: string
       bump:
         description: 'whether to bump the version number by a major minor patch'
@@ -30,7 +30,7 @@ on:
       version_tag:
         description: 'Version tag to use: (bump must also be set to none to keep a specific version'
         required: false
-        default: 'latest'
+        default: '0.0.1-dev'
         type: string
       bump:
         description: 'whether to bump the version number by a major minor patch'
@@ -51,6 +51,7 @@ jobs:
     with:
       context: member-service
       version_tag: ${{ inputs.version_tag }}
+      docker_name: memberservice
       bump: ${{ inputs.bump }}
       ref: ${{ inputs.ref }}
 

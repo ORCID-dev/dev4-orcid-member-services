@@ -23,7 +23,7 @@ on:
       version_tag:
         description: 'Name of the tag to build'
         required: false
-        default: '0.0.1'
+        default: '0.0.1-dev'
         type: string
       bump:
         description: 'whether to bump the version number by a major minor patch amount or none'
@@ -52,7 +52,7 @@ on:
       version_tag:
         description: 'Name of the tag to build'
         required: false
-        default: '0.0.1'
+        default: '0.0.1-dev'
         type: string
       bump:
         description: |
@@ -137,7 +137,7 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: build our project
+      - name: push our container to the private registry
         run: |
           docker push ${DOCKER_REG_PRIVATE}/${docker_name}:${tag}
         shell: bash
