@@ -45,16 +45,26 @@ on:
 
 jobs:
 
-  bld_memberservice:
-    uses: ./.github/workflows/bld_docker_jib.yml
+  bld_ui:
+    uses: ./.github/workflows/bld_docker.yml
     secrets: inherit # pass all secrets
     with:
-      context: member-service
+      docker_name: ui
+      context: ui
       version_tag: ${{ inputs.version_tag }}
-      docker_name: memberservice
       bump: ${{ inputs.bump }}
       ref: ${{ inputs.ref }}
 
+#   bld_memberservice:
+#     uses: ./.github/workflows/bld_docker_jib.yml
+#     secrets: inherit # pass all secrets
+#     with:
+#       context: member-service
+#       version_tag: ${{ inputs.version_tag }}
+#       docker_name: memberservice
+#       bump: ${{ inputs.bump }}
+#       ref: ${{ inputs.ref }}
+# 
 #   bld_assertionservice:
 #     uses: ./.github/workflows/bld_docker_jib.yml
 #     secrets: inherit # pass all secrets
@@ -107,17 +117,17 @@ jobs:
 #       bump: ${{ inputs.bump }}
 #       ref: ${{ inputs.ref }}
 # 
-  bld_gateway_prod:
-    uses: ./.github/workflows/bld_docker_jib.yml
-    secrets: inherit # pass all secrets
-    with:
-      context: gateway
-      version_tag: ${{ inputs.version_tag }}
-      docker_name: gateway
-      angular_env: prod
-      bump: ${{ inputs.bump }}
-      ref: ${{ inputs.ref }}
-
+#   bld_gateway_prod:
+#     uses: ./.github/workflows/bld_docker_jib.yml
+#     secrets: inherit # pass all secrets
+#     with:
+#       context: gateway
+#       version_tag: ${{ inputs.version_tag }}
+#       docker_name: gateway
+#       angular_env: prod
+#       bump: ${{ inputs.bump }}
+#       ref: ${{ inputs.ref }}
+# 
 
 # 
 # 
