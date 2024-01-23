@@ -55,79 +55,76 @@ jobs:
       bump: ${{ inputs.bump }}
       ref: ${{ inputs.ref }}
 
-#   bld_memberservice:
-#     uses: ./.github/workflows/bld_docker_jib.yml
-#     secrets: inherit # pass all secrets
-#     with:
-#       context: member-service
-#       version_tag: ${{ inputs.version_tag }}
-#       docker_name: memberservice
-#       bump: ${{ inputs.bump }}
-#       ref: ${{ inputs.ref }}
-# 
-#   bld_assertionservice:
-#     uses: ./.github/workflows/bld_docker_jib.yml
-#     secrets: inherit # pass all secrets
-#     with:
-#       context: assertion-service
-#       version_tag: ${{ inputs.version_tag }}
-#       docker_name: assertionservice
-#       bump: ${{ inputs.bump }}
-#       ref: ${{ inputs.ref }}
-# 
-#   bld_discoveryservice:
-#     uses: ./.github/workflows/bld_docker_jib.yml
-#     secrets: inherit # pass all secrets
-#     with:
-#       context: discovery-service
-#       version_tag: ${{ inputs.version_tag }}
-#       docker_name: discoverservice
-#       bump: ${{ inputs.bump }}
-#       ref: ${{ inputs.ref }}
-# 
-#   bld_userservice:
-#     uses: ./.github/workflows/bld_docker_jib.yml
-#     secrets: inherit # pass all secrets
-#     with:
-#       context: user-service
-#       version_tag: ${{ inputs.version_tag }}
-#       docker_name: userservice
-#       bump: ${{ inputs.bump }}
-#       ref: ${{ inputs.ref }}
-# 
-#   bld_gateway_qa:
-#     uses: ./.github/workflows/bld_docker_jib.yml
-#     secrets: inherit # pass all secrets
-#     with:
-#       context: gateway
-#       version_tag: ${{ inputs.version_tag }}
-#       docker_name: gateway
-#       angular_env: qa
-#       bump: ${{ inputs.bump }}
-#       ref: ${{ inputs.ref }}
-# 
-#   bld_gateway_sandbox:
-#     uses: ./.github/workflows/bld_docker_jib.yml
-#     secrets: inherit # pass all secrets
-#     with:
-#       context: gateway
-#       version_tag: ${{ inputs.version_tag }}
-#       docker_name: gateway
-#       angular_env: sandbox
-#       bump: ${{ inputs.bump }}
-#       ref: ${{ inputs.ref }}
-# 
-#   bld_gateway_prod:
-#     uses: ./.github/workflows/bld_docker_jib.yml
-#     secrets: inherit # pass all secrets
-#     with:
-#       context: gateway
-#       version_tag: ${{ inputs.version_tag }}
-#       docker_name: gateway
-#       angular_env: prod
-#       bump: ${{ inputs.bump }}
-#       ref: ${{ inputs.ref }}
-# 
+  bld_memberservice:
+    uses: ./.github/workflows/bld_docker_jib.yml
+    secrets: inherit # pass all secrets
+    with:
+      context: member-service
+      version_tag: ${{ inputs.version_tag }}
+      docker_name: memberservice
+      bump: ${{ inputs.bump }}
+      ref: ${{ inputs.ref }}
 
-# 
-# 
+  bld_assertionservice:
+    uses: ./.github/workflows/bld_docker_jib.yml
+    secrets: inherit # pass all secrets
+    with:
+      context: assertion-service
+      version_tag: ${{ inputs.version_tag }}
+      docker_name: assertionservice
+      bump: ${{ inputs.bump }}
+      ref: ${{ inputs.ref }}
+
+  bld_discoveryservice:
+    uses: ./.github/workflows/bld_docker_jib.yml
+    secrets: inherit # pass all secrets
+    with:
+      context: discovery-service
+      version_tag: ${{ inputs.version_tag }}
+      docker_name: discoverservice
+      bump: ${{ inputs.bump }}
+      ref: ${{ inputs.ref }}
+
+  bld_userservice:
+    uses: ./.github/workflows/bld_docker_jib.yml
+    secrets: inherit # pass all secrets
+    with:
+      context: user-service
+      version_tag: ${{ inputs.version_tag }}
+      docker_name: userservice
+      bump: ${{ inputs.bump }}
+      ref: ${{ inputs.ref }}
+
+  bld_gateway_qa:
+    uses: ./.github/workflows/bld_docker_jib.yml
+    secrets: inherit # pass all secrets
+    with:
+      context: gateway
+      version_tag: ${{ inputs.version_tag }}
+      docker_name: gateway
+      angular_env: qa
+      bump: ${{ inputs.bump }}
+      ref: ${{ inputs.ref }}
+
+  bld_gateway_sandbox:
+    uses: ./.github/workflows/bld_docker_jib.yml
+    secrets: inherit # pass all secrets
+    with:
+      context: gateway
+      version_tag: ${{ inputs.version_tag }}
+      docker_name: gateway
+      angular_env: sandbox
+      bump: ${{ inputs.bump }}
+      ref: ${{ inputs.ref }}
+
+  bld_gateway_prod:
+    uses: ./.github/workflows/bld_docker_jib.yml
+    secrets: inherit # pass all secrets
+    with:
+      context: gateway
+      version_tag: ${{ inputs.version_tag }}
+      docker_name: gateway
+      angular_env: prod
+      bump: ${{ inputs.bump }}
+      ref: ${{ inputs.ref }}
+
