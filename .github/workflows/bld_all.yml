@@ -81,7 +81,7 @@ jobs:
     with:
       context: discovery-service
       version_tag: ${{ inputs.version_tag }}
-      docker_name: discoverservice
+      docker_name: discoveryservice
       bump: ${{ inputs.bump }}
       ref: ${{ inputs.ref }}
 
