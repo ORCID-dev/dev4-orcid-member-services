@@ -28,19 +28,14 @@ on:
   workflow_dispatch:
     inputs:
       version_tag:
-        description: 'Version tag to use: (bump must also be set to none to keep a specific version'
+        description: 'Version:- numeric x.x.x that will be used to tag docker containers. So if you selected release-1.72.22 as your git reference, this would normally be 1.72.22'
         required: false
-        default: '0.0.1-dev'
-        type: string
-      bump:
-        description: 'whether to bump the version number by a major minor patch'
-        required: false
-        default: 'patch'
+        default: '0.0.1'
         type: string
       ref:
-        description: 'git reference to use with the checkout use default_branch to have that calculated'
-        required: false
-        default: "default"
+        description: 'git reference to use with the checkout. This should be the tag that you want to build'
+        required: true
+        default: "release-1.72.22"
         type: string
 
 jobs:
